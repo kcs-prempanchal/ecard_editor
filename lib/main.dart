@@ -1,7 +1,4 @@
 import 'package:canvas_draggable/screens/home_screen.dart';
-import 'package:canvas_draggable/screens/sticker_editing_view.dart';
-import 'package:flutter/material.dart';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,5 +19,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

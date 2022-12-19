@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class TextInfo {
   String text;
+  String image;
   double left;
   double top;
   Color color;
@@ -17,6 +18,7 @@ class TextInfo {
 
   TextInfo({
     required this.text,
+    required this.image,
     required this.left,
     required this.top,
     required this.color,

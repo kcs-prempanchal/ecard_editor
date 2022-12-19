@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 import 'package:canvas_draggable/models/replace_list.dart';
-import 'package:canvas_draggable/screens/pdf_preview.dart';
+import 'package:canvas_draggable/screens/show_image.dart';
 import 'package:flutter/material.dart';
 import '../models/text_info.dart';
 import '../screens/edit_image_screen.dart';
@@ -69,40 +69,48 @@ abstract class EditImageViewModel extends State<EditImageScreen> {
 
   preview(BuildContext context) {
     if (texts.isNotEmpty) {
-      var num = int.parse(widget.numberOfPages!);
-      for (int i = 0; i < num; i++) {
-        screenshotController.capture().then((Uint8List? image) {
-          setState(() {
-            screenshotImage = image;
-            myCaptureImage!.add(image!);
-          });
-          gotoPDF();
-          Future.delayed(const Duration(seconds: 15));
-          // Navigator.push(
-          //     context,
-          //     MaterialPageRoute(
-          //         builder: (context) => PdfViewer(
-          //               numberOfPages: widget.numberOfPages.toString(),
-          //               myCaptureImage: myCaptureImage!,
-          //               editedImage: widget.editedImage,
-          //               pageTypeValue: widget.pageTypeValue,
-          //             )));
-        }).catchError((err) => print(err));
-      }
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ShowImage(text: texts,)));
+      // var num = int.parse(widget.numberOfPages!);
+      // for (int i = 0; i < num; i++) {
+      //   screenshotController.capture().then((Uint8List? image) {
+      //     setState(() {
+      //       screenshotImage = image;
+      //       myCaptureImage!.add(image!);
+      //     });
+      //     gotoPDF();
+      //     Future.delayed(const Duration(seconds: 15));
+      //     // Navigator.push(
+      //     //     context,
+      //     //     MaterialPageRoute(
+      //     //         builder: (context) => PdfViewer(
+      //     //               numberOfPages: widget.numberOfPages.toString(),
+      //     //               myCaptureImage: myCaptureImage!,
+      //     //               editedImage: widget.editedImage,
+      //     //               pageTypeValue: widget.pageTypeValue,
+      //     //             )));
+      //   }).catchError((err) => print(err));
+      // }
     }
   }
 
   gotoPDF() async {
     Future.delayed(const Duration(seconds: 15));
+    // Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //         builder: (context) => PdfViewer(
+    //               numberOfPages: widget.numberOfPages.toString(),
+    //               myCaptureImage: myCaptureImage!,
+    //               editedImage: widget.editedImage,
+    //               pageTypeValue: widget.pageTypeValue,
+    //             )));
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => PdfViewer(
-                  numberOfPages: widget.numberOfPages.toString(),
-                  myCaptureImage: myCaptureImage!,
-                  editedImage: widget.editedImage,
-                  pageTypeValue: widget.pageTypeValue,
-                )));
+            builder: (context) => ShowImage(text: texts,)));
   }
 
   removeText(BuildContext context) {
@@ -209,6 +217,7 @@ abstract class EditImageViewModel extends State<EditImageScreen> {
     setState(() {
       texts.add(
         TextInfo(
+          image:widget.selectedImage ,
           text: id,
           left: 100,
           top: 100,

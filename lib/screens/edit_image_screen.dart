@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:canvas_draggable/models/image_model.dart';
 import 'package:canvas_draggable/models/replace_data.dart';
@@ -75,6 +74,7 @@ class _EditImageScreenState extends EditImageViewModel {
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Stack(
+              fit: StackFit.expand,
               children: [
                 _selectedImage,
                 for (int i = 0; i < texts.length; i++)
@@ -190,7 +190,7 @@ class _EditImageScreenState extends EditImageViewModel {
         File(
           widget.selectedImage,
         ),
-        fit: BoxFit.cover,
+        // fit: BoxFit.cover,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
       );
