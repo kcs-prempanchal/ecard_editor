@@ -78,6 +78,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  dotted_border:
+    dependency: "direct main"
+    description:
+      name: dotted_border
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0+3"
   fake_async:
     dependency: transitive
     description:
@@ -104,6 +111,20 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_drawing_board:
+    dependency: "direct main"
+    description:
+      name: flutter_drawing_board
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.2"
+  flutter_hsvcolor_picker:
+    dependency: transitive
+    description:
+      name: flutter_hsvcolor_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.3"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -183,7 +204,7 @@ packages:
       name: image_picker_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.5+3"
+    version: "0.8.5+4"
   image_picker_for_web:
     dependency: transitive
     description:
@@ -197,7 +218,7 @@ packages:
       name: image_picker_ios
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.6+1"
+    version: "0.8.6+4"
   image_picker_platform_interface:
     dependency: transitive
     description:
@@ -247,6 +268,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
+  path_drawing:
+    dependency: transitive
+    description:
+      name: path_drawing
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   path_parsing:
     dependency: transitive
     description:
@@ -379,7 +407,7 @@ packages:
       name: screenshot
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.3"
+    version: "1.3.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -454,7 +482,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.2"
+    version: "3.1.3"
   xdg_directories:
     dependency: transitive
     description:

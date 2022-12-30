@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:canvas_draggable/models/image_model.dart';
 import 'package:canvas_draggable/models/replace_list.dart';
 import 'package:canvas_draggable/screens/show_image.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,10 @@ abstract class EditImageViewModel extends State<EditImageScreen> {
   bool flag = false;
   int currentIndex = 0;
   int i = 0;
+  int height = 0;
+  Images? selectedImage;
+  int width = 0;
+  String backgroundImage="";
 
   // var directory; //from path_provide package
   // String fileName = DateTime.now().microsecondsSinceEpoch.toString();
@@ -132,12 +137,13 @@ abstract class EditImageViewModel extends State<EditImageScreen> {
   setCurrentIndex(BuildContext context, index) {
     setState(() {
       currentIndex = index;
+      // texts[i].selectedFont = true;
     });
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text(
-          'Selected For Styling',
-          style: TextStyle(
+          '${texts[currentIndex].text} is Selected For Styling',
+          style: const TextStyle(
             fontSize: 16.0,
           ),
         ),
@@ -217,7 +223,10 @@ abstract class EditImageViewModel extends State<EditImageScreen> {
     setState(() {
       texts.add(
         TextInfo(
-          image:widget.selectedImage ,
+          selectedFont: false,
+          scale: 0.0,
+          angle: 0.0,
+          image:backgroundImage.toString(),
           text: id,
           left: 100,
           top: 100,

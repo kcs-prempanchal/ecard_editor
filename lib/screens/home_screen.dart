@@ -34,9 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int height = 0;
   Images? selectedImage;
   int width = 0;
+  String? path;
   int pageHeight = 0;
   int pageWidth = 0;
-  String? path;
   String? numberOfPages;
   TextEditingController pagesController = TextEditingController();
   String pageTypeValue = pageType.first;
@@ -111,87 +111,87 @@ class _HomeScreenState extends State<HomeScreen> {
                       ? const Text('Select image')
                       : const Text('Image has been selected')),
               const SizedBox(height: 15),
-              Text('Height of Image : $height'),
-              const SizedBox(height: 15),
-              Text('Width of Image : $width'),
-              const SizedBox(height: 60),
-              SizedBox(
-                height: 45,
-                width: 200,
-                child: TextFormField(
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  keyboardType: TextInputType.number,
-                  controller: pagesController,
-                  decoration: const InputDecoration(
-                    label: Text('number of pages'),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              Container(
-                width: 200,
-                height: 45,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(10)),
-                child: DropdownButtonHideUnderline(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: DropdownButton<String>(
-                      borderRadius: BorderRadius.circular(15),
-                      value: pageTypeValue,
-                      icon: const Icon(Icons.arrow_drop_down),
-                      elevation: 6,
-                      style: const TextStyle(color: Colors.black),
-                      onChanged: (String? value) {
-                        // This is called when the user selects an item.
-                        setState(() {
-                          pageTypeValue = value!;
-                          if (pageTypeValue == 'a3') {
-                            pageWidth = 841;
-                            pageHeight = 1190;
-                          } else if (pageTypeValue == 'a4') {
-                            pageWidth = 595;
-                            pageHeight = 842;
-                          } else if (pageTypeValue == 'a5') {
-                            pageWidth = 420;
-                            pageHeight = 595;
-                          } else if (pageTypeValue == 'a6') {
-                            pageWidth = 298;
-                            pageHeight = 420;
-                          } else if (pageTypeValue == 'letter') {
-                            pageWidth = 612;
-                            pageHeight = 792;
-                          } else if (pageTypeValue == 'legal') {
-                            pageWidth = 612;
-                            pageHeight = 1008;
-                          } else if (pageTypeValue == 'roll57') {
-                            pageWidth = 162;
-                            pageHeight = 1190;
-                          } else if (pageTypeValue == 'roll80') {
-                            pageWidth = 227;
-                            pageHeight = 1190;
-                          }
-                        });
-                      },
-                      items: pageType
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 15),
-              Text('Height of Pdf Page : $pageHeight'),
-              const SizedBox(height: 15),
-              Text('Width of Pdf Page : $pageWidth'),
-              const SizedBox(height: 60),
+              // Text('Height of Image : $height'),
+              // const SizedBox(height: 15),
+              // Text('Width of Image : $width'),
+              // const SizedBox(height: 60),
+              // SizedBox(
+              //   height: 45,
+              //   width: 200,
+              //   child: TextFormField(
+              //     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              //     keyboardType: TextInputType.number,
+              //     controller: pagesController,
+              //     decoration: const InputDecoration(
+              //       label: Text('number of pages'),
+              //       border: OutlineInputBorder(
+              //           borderRadius: BorderRadius.all(Radius.circular(10.0))),
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(height: 20),
+              // Container(
+              //   width: 200,
+              //   height: 45,
+              //   decoration: BoxDecoration(
+              //       border: Border.all(color: Colors.grey),
+              //       borderRadius: BorderRadius.circular(10)),
+              //   child: DropdownButtonHideUnderline(
+              //     child: Padding(
+              //       padding: const EdgeInsets.symmetric(horizontal: 15),
+              //       child: DropdownButton<String>(
+              //         borderRadius: BorderRadius.circular(15),
+              //         value: pageTypeValue,
+              //         icon: const Icon(Icons.arrow_drop_down),
+              //         elevation: 6,
+              //         style: const TextStyle(color: Colors.black),
+              //         onChanged: (String? value) {
+              //           // This is called when the user selects an item.
+              //           setState(() {
+              //             pageTypeValue = value!;
+              //             if (pageTypeValue == 'a3') {
+              //               pageWidth = 841;
+              //               pageHeight = 1190;
+              //             } else if (pageTypeValue == 'a4') {
+              //               pageWidth = 595;
+              //               pageHeight = 842;
+              //             } else if (pageTypeValue == 'a5') {
+              //               pageWidth = 420;
+              //               pageHeight = 595;
+              //             } else if (pageTypeValue == 'a6') {
+              //               pageWidth = 298;
+              //               pageHeight = 420;
+              //             } else if (pageTypeValue == 'letter') {
+              //               pageWidth = 612;
+              //               pageHeight = 792;
+              //             } else if (pageTypeValue == 'legal') {
+              //               pageWidth = 612;
+              //               pageHeight = 1008;
+              //             } else if (pageTypeValue == 'roll57') {
+              //               pageWidth = 162;
+              //               pageHeight = 1190;
+              //             } else if (pageTypeValue == 'roll80') {
+              //               pageWidth = 227;
+              //               pageHeight = 1190;
+              //             }
+              //           });
+              //         },
+              //         items: pageType
+              //             .map<DropdownMenuItem<String>>((String value) {
+              //           return DropdownMenuItem<String>(
+              //             value: value,
+              //             child: Text(value),
+              //           );
+              //         }).toList(),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(height: 15),
+              // Text('Height of Pdf Page : $pageHeight'),
+              // const SizedBox(height: 15),
+              // Text('Width of Pdf Page : $pageWidth'),
+              // const SizedBox(height: 60),
               ElevatedButton(
                   onPressed: () {
                     if (pageTypeValue == 'a3') {
@@ -225,13 +225,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (height == 0) {
                       ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('please select image')));
-                    } else if (pagesController.text.trim().isEmpty) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text('please enter number of pages')));
-                    } else if (pageTypeValue == 'Page Type') {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text('please select page type')));
                     }
+                    // else if (pagesController.text.trim().isEmpty) {
+                    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    //       content: Text('please enter number of pages')));
+                    // } else if (pageTypeValue == 'Page Type') {
+                    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    //       content: Text('please select page type')));
+                    // }
                     // else if (height > 800 && width > 900) {
                     //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                     //       content: Text(

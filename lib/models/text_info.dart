@@ -5,10 +5,13 @@ class TextInfo {
   String image;
   double left;
   double top;
+  double angle;
   Color color;
   FontWeight fontWeight;
   FontStyle fontStyle;
   double fontSize;
+  double scale;
+  bool selectedFont;
   TextAlign textAlign;
 
   // String DOBList;
@@ -22,6 +25,9 @@ class TextInfo {
     required this.left,
     required this.top,
     required this.color,
+    required this.angle,
+    required this.selectedFont,
+    required this.scale,
     required this.fontWeight,
     required this.fontStyle,
     required this.fontSize,

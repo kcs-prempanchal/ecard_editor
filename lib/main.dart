@@ -1,4 +1,7 @@
+import 'package:canvas_draggable/screens/custom_painter.dart';
+import 'package:canvas_draggable/screens/edit_image_screen.dart';
 import 'package:canvas_draggable/screens/home_screen.dart';
+import 'package:canvas_draggable/screens/shape.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,8 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Image Editor',
       theme: ThemeData.light(),
-      home: HomeScreen(),
-      // home: StickerViewPage(),
+      // home: HomeScreen(),
+      home: EditImageScreen(selectedImage: '',),
     );
   }
 }
