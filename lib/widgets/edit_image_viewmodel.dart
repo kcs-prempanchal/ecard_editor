@@ -24,6 +24,9 @@ abstract class EditImageViewModel extends State<EditImageScreen> {
   Images? selectedImage;
   int width = 0;
   String backgroundImage="";
+  bool alreadySelected=false;
+  bool lastSelected=false;
+
 
   // var directory; //from path_provide package
   // String fileName = DateTime.now().microsecondsSinceEpoch.toString();
@@ -124,6 +127,7 @@ abstract class EditImageViewModel extends State<EditImageScreen> {
     });
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
+        backgroundColor: Colors.red,
         content: Text(
           'Deleted',
           style: TextStyle(
@@ -137,10 +141,12 @@ abstract class EditImageViewModel extends State<EditImageScreen> {
   setCurrentIndex(BuildContext context, index) {
     setState(() {
       currentIndex = index;
+      lastSelected=true;
       // texts[i].selectedFont = true;
     });
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        backgroundColor: Colors.green,
         content: Text(
           '${texts[currentIndex].text} is Selected For Styling',
           style: const TextStyle(
@@ -219,7 +225,7 @@ abstract class EditImageViewModel extends State<EditImageScreen> {
     });
   }
 
-  addNewText(BuildContext context, String id) {
+  addNewText(BuildContext context, String text) {
     setState(() {
       texts.add(
         TextInfo(
@@ -227,7 +233,7 @@ abstract class EditImageViewModel extends State<EditImageScreen> {
           scale: 0.0,
           angle: 0.0,
           image:backgroundImage.toString(),
-          text: id,
+          text: text,
           left: 100,
           top: 100,
           color: Colors.black,

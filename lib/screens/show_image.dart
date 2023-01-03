@@ -23,13 +23,16 @@ class _ShowImageState extends State<ShowImage> {
             Positioned(
                 left: widget.text[i].left,
                 top: widget.text[i].top,
-                child: Text(
-                  widget.text[i].text,
-                  style: TextStyle(
-                      color: widget.text[i].color,
-                      fontSize: widget.text[i].fontSize,
-                      fontWeight: widget.text[i].fontWeight,
-                      fontStyle: widget.text[i].fontStyle),
+                child: Transform.rotate(
+                  angle: widget.text[i].angle,
+                  child: Text(
+                    widget.text[i].text,
+                    style: TextStyle(
+                        color: widget.text[i].color,
+                        fontSize: widget.text[i].fontSize,
+                        fontWeight: widget.text[i].fontWeight,
+                        fontStyle: widget.text[i].fontStyle),
+                  ),
                 ))
         ],
       ),
